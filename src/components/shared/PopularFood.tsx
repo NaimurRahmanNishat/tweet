@@ -9,8 +9,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-import { Heart, Truck } from "lucide-react";
-import { CiDiscount1, CiStar } from "react-icons/ci";
+import { Clock, Heart, Truck } from "lucide-react";
+import { CiDeliveryTruck, CiDiscount1, CiStar } from "react-icons/ci";
 import { FaHotel, FaStar } from "react-icons/fa";
 import { IoMdTime } from "react-icons/io";
 import plus from "../../../public/plus.png";
@@ -235,7 +235,7 @@ const PopularFood = () => {
               <CarouselContent className="ml-1 w-full">
                 {popularFood.map((food) => (
                   <CarouselItem key={food.id} className="pl-1 basis-1/4">
-                    <div className="relative overflow-hidden group flex flex-col  bg-white w-[282px] h-[312px] rounded-[15px]">
+                    <div className="relative overflow-hidden group flex flex-col  bg-white w-[282px] h-[280px] rounded-[15px]">
                       {/* image section start */}
                       <div className="relative w-full h-[160px] overflow-hidden">
                         <Image
@@ -260,35 +260,31 @@ const PopularFood = () => {
                       </div>
                       {/* image section end */}
                       {/* content section start */}
-                      <div className="w-full h-[137.05px] flex flex-col mt-3 px-[15px]">
-                        <div className="w-full h-[107px] flex flex-col gap-3">
-                          <div className="w-full h-full flex items-center justify-between">
-                            <h4 className="w-[178.89px] h-[46px] text-[18px] font-primary font-medium leading-[130%] tracking-[0.1%] text-[#262626]">{food.name}</h4>
-                            <div className="flex flex-col w-[58px] h-[36px] gap-1">
-                              <h5 className="text-[#767676] line-through font-primary font-light text-[12px] leading-[16px]">{food.price}</h5>
-                              <h5 className="text-[#ED6923] font-primary font-semibold text-[16px] leading-[16px]">{food.offerPrice}</h5>
+                      <div className="w-[253px] h-[79.05px] flex flex-col gap-3 mt-3 px-[15px]">
+                        <div className="w-full h-[57.05px] flex flex-col gap-3">
+                          <h3 className="font-primary font-medium text-[18px] leading-[130%] tracking-[0.1%] text-[#262626]">{food.shop}</h3>
+                          <div className="w-full h-[24px] flex gap-5">
+                            <div className="flex gap-1 w-[79px] h-[24px]">
+                              <Clock size={12} />
+                              <p className="text-[#ED6923] font-medium text-[12px] leading-[100%]">20-30 min</p>
                             </div>
-                          </div>
-                          <div className="w-full h-[21px] flex gap-2">
-                            <FaHotel size={16}/>
-                            <h3 className="font-primary font-normal text-[16px] leading-[130%] tracking-[0%] text-[#262626]">{food.shop}</h3>
-                          </div>
-                          <div className="w-[133px] h-[16px] flex gap-6 items-center justify-between">
-                            <div className="w-[62px] h-[12px] gap-1 flex items-center">
-                              <IoMdTime />
-                              <h5 className="font-primary font-medium text-[12px] leading-[100%] text-[#5C5C5C]">{food.time}</h5>
-                            </div>
-                            <div className="w-[47px] h-[16px] flex items-center justify-between gap-1">
-                              <Truck size={16}/>
-                              <h5 className="font-primary font-medium text-[12px] leading-[100%] text-[#5C5C5C]">{food.deliveryFee}</h5>
+                            <div className="w-[136px] h-[16px] flex gap-1">
+                              <CiDeliveryTruck size={16} />
+                              <p className="text-[#ED6923] font-medium text-[12px] leading-[100%]">Delivery Fee {food.deliveryFee}</p>
                             </div>
                           </div>
                         </div>
+                        <div className="w-[220px] h-[10px] flex items-center gap-1">
+                          <p className="font-primary text-[12px] font-normal leading-[10px] tracking-[0%] w-[29px] h-[10px]">Pizza</p>
+                          <p className="w-[7px] h-[0px] border-[1px] border-[#686868] rotate-90"></p>
+                          <p className="font-primary text-[12px] font-normal leading-[10px] tracking-[0%] w-[40px] h-[10px]">Burger</p>
+                          <p className="w-[7px] h-[0px] border-[1px] border-[#686868] rotate-90"></p>
+                          <p className="font-primary text-[12px] font-normal leading-[10px] tracking-[0%] w-[34px] h-[10px]">Pasta</p>
+                          <p className="w-[7px] h-[0px] border-[1px] border-[#686868] rotate-90"></p>
+                          <p className="font-primary text-[12px] font-normal leading-[10px] tracking-[0%] w-[69px] h-[10px]">Chicken Fry</p>
+                        </div>
                       </div>
                       {/* content section end */}
-                      <div className="absolute bottom-5 right-5 rounded-full cursor-pointer bg-[#E5E5E5]">
-                        <Image src={plus} alt="sitted_image" width={44} height={44} />
-                      </div>
                     </div>
                   </CarouselItem>
                 ))}
